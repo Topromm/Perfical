@@ -11,9 +11,9 @@ I've always been a highly analytical person, which is why I spent years tracking
 ## Tech Stack
 - **React** (with functional components and hooks)
 - **Vite** (for fast development and build)
+- **Tauri** (desktop wrapper)
 
 Coming soon:
-- Tauri desktop wrapper
 - JSON for local storage (update to SQLite later)
 - FastAPI (backend)
 
