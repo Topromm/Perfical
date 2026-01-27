@@ -6,7 +6,11 @@ I've always been a highly analytical person, which is why I spent years tracking
 
 
 ## Features
--
+- Visual calendar view of income and expenses
+- Color-coded entries for income, bills, and subscriptions
+- Local storage with JSON (SQLite planned)
+- Fast desktop performance via Tauri
+- Simple UI with keyboard shortcuts
 
 ## Tech Stack
 - **React** (with functional components and hooks)
