@@ -1,24 +1,13 @@
-import "./App.css"
-import githubIcon from "./assets/github.svg"
-import { open } from "@tauri-apps/plugin-shell"
+import {useEffect} from "react";
+import Router from "./router";
+import "./styles/App.css";
 
-function App() {
+export default function App() {
+  useEffect(() => {
+    const handler = (e: MouseEvent) => e.preventDefault();
+    document.addEventListener("contextmenu", handler);
+    return () => document.removeEventListener("contextmenu", handler);
+  }, []);
 
-  return (
-    <>
-      <div className="perfical-container">
-        <h1 className="perfical-title">Perfical</h1>
-        <p className="perfical-tagline">Money made clear, year after year.</p>
-      </div>
-<button
-  className="github-link"
-  onClick={() => open("https://github.com/Topromm/Perfical").catch(err => console.error(err))}
->
-  <img src={githubIcon} alt="GitHub"/>
-</button>
-
-    </>
-  )
+  return <Router />;
 }
-
-export default App

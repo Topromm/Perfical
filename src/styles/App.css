@@ -1,0 +1,21 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@font-face {
+  font-family: "PerficalFont";
+  src: url("/src/assets/fonts/Panton-BlackCaps.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Coolvetica";
+  src: url("/src/assets/fonts/coolvetica.regular.woff2") format("woff2");
+}

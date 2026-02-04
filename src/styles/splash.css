@@ -1,0 +1,194 @@
+.splash-wrapper {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  position: relative;
+}
+
+.blob-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.perfical-container {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.perfical-container:hover {
+  filter: brightness(1.3) drop-shadow(0 0 20px rgba(66, 126, 70, 0.6));
+}
+
+.perfical-inner {
+  transition: transform 0.3s ease;
+}
+
+.perfical-container:hover .perfical-inner {
+  transform: scale(1.05);
+}
+
+.perfical-title {
+  font-family: "PerficalFont", sans-serif;
+  font-size: clamp(7rem, 8.33vw, 10rem);
+  line-height: 0.4;
+  color: #427e46;
+  margin: 0;
+}
+
+.perfical-tagline {
+  font-family: "Coolvetica", sans-serif;
+  font-size: clamp(2.14rem, 2.55vw, 3.05rem);
+  margin: 0.5rem 0 0 0;
+  color: #366639;
+}
+
+.perfical-container {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation:
+    fadeIn 2s ease-in-out,
+    floaty 12s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-12px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0.6deg);
+  }
+  75% {
+    transform: translateY(12px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.github-link {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.github-link img {
+  width: 3rem;
+  height: 3rem;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.github-link:hover img {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.github-tooltip {
+  position: absolute;
+  bottom: -2.2rem;
+  right: 0;
+  background: rgba(0, 0, 0, 0.75);
+  color: #d8f5dd;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(5px);
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  transition-delay: 0s;
+}
+
+.github-link:hover .github-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.2s;
+}
+
+.perfical-container,
+.github-link {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+@keyframes zoomFadeOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+    filter: blur(6px);
+  }
+}
+
+.splash-exit {
+  animation: zoomFadeOut 0.9s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeOutBackground {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.blob-exit {
+  animation: fadeOutBackground 0.9s ease forwards;
+}
+
+@keyframes githubSlideDown {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+
+  10% {
+    transform: translateY(-6px) rotate(0deg);
+    opacity: 1;
+  }
+
+  15% {
+    transform: rotate(8deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100px) rotate(-8deg);
+    opacity: 0;
+  }
+}
+
+.github-exit {
+  animation: githubSlideDown 0.6s ease forwards;
+  pointer-events: none;
+}

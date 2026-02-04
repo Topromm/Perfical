@@ -1,0 +1,60 @@
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.setup-container {
+  animation: fadeInPage 0.6s ease forwards;
+  text-align: center;
+  color: #d8f5dd;
+}
+
+.setup-title {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #7fffa1;
+}
+
+.setup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 280px;
+  margin: 0 auto;
+}
+
+.setup-form label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 1rem;
+  color: #c7e8d0;
+}
+
+.setup-form input,
+.setup-form select {
+  margin-top: 0.4rem;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: #1a3a28;
+  color: #d8f5dd;
+}
+
+.setup-submit {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #427e46;
+  color: white;
+  transition: 0.2s ease;
+}
+
+.setup-submit:hover {
+  background: #4fae55;
+}
