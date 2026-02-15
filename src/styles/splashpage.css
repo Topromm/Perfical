@@ -33,6 +33,7 @@
 }
 
 .perfical-inner {
+  animation: floaty 12s ease-in-out infinite;
   transition: transform 0.3s ease;
 }
 
@@ -55,30 +56,64 @@
   color: #366639;
 }
 
-.perfical-container {
-  transition: all 0.3s ease;
-  cursor: pointer;
-  animation:
-    fadeIn 2s ease-in-out,
-    floaty 12s ease-in-out infinite;
+@keyframes floaty {
+  0%   {transform: translateY(-12px) rotate(-1deg);}
+  25%  {transform: translateY(0px) rotate(1deg);}
+  50%  {transform: translateY(12px) rotate(-1deg);}
+  75%  {transform: translateY(0px) rotate(1deg);}
+  100% {transform: translateY(-12px) rotate(-1deg);}
 }
 
-@keyframes floaty {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-12px) rotate(-1deg);
-  }
-  50% {
-    transform: translateY(0px) rotate(0.6deg);
-  }
-  75% {
-    transform: translateY(12px) rotate(1deg);
-  }
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
+.buymeacoffee-link {
+  animation: fadeIn 2s ease-in-out;
+  transition: all 0.3s ease;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  position: fixed;
+  cursor: pointer;
+  display: flex;
+  border: none;
+  left: 2rem;
+  padding: 0;
+  top: 2rem;
+}
+
+.buymeacoffee-link img {
+  transition: all 0.3s ease;
+  height: 3rem;
+  opacity: 0.3;
+  width: 3rem;
+}
+
+.buymeacoffee-link:hover img {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.buymeacoffee-tooltip {
+  background: rgba(0, 0, 0, 0.75);
+  transform: translateY(-5px);
+  padding: 0.5rem 0.7rem;
+  pointer-events: none;
+  transition-delay: 0s;
+  white-space: nowrap;
+  border-radius: 6px;
+  position: absolute;
+  font-size: 0.8rem;
+  color: #d8f5dd;
+  top: -1.6rem;
+  opacity: 0;
+  left: 0;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.buymeacoffee-link:hover .buymeacoffee-tooltip {
+  transform: translateY(-10px);
+  transition-delay: 1.2s;
+  opacity: 1;
 }
 
 .github-link {
@@ -99,7 +134,7 @@
 .github-link img {
   transition: all 0.3s ease;
   height: 3rem;
-  opacity: 0.7;
+  opacity: 0.3;
   width: 3rem;
 }
 
@@ -123,8 +158,8 @@
   opacity: 0;
   right: 0;
   transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
 .github-link:hover .github-tooltip {
@@ -134,7 +169,8 @@
 }
 
 .perfical-container,
-.github-link {
+.github-link,
+.buymeacoffee-link {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -172,17 +208,14 @@
     transform: translateY(0) rotate(0deg);
     opacity: 1;
   }
-
   10% {
     transform: translateY(-6px) rotate(0deg);
     opacity: 1;
   }
-
   15% {
     transform: rotate(8deg);
     opacity: 1;
   }
-
   100% {
     transform: translateY(100px) rotate(-8deg);
     opacity: 0;
@@ -191,5 +224,29 @@
 
 .github-exit {
   animation: githubSlideDown 0.6s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes buymeacoffeeSlideUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  10% {
+    transform: translateY(6px) rotate(0deg);
+    opacity: 1;
+  }
+  15% {
+    transform: rotate(-8deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(8deg);
+    opacity: 0;
+  }
+}
+
+.buymeacoffee-exit {
+  animation: buymeacoffeeSlideUp 0.6s ease forwards;
   pointer-events: none;
 }

@@ -1,9 +1,9 @@
 import {useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import Calendar from "../components/Calendar";
-import "../styles/overview.css";
+import "../styles/homepage.css";
 
-export default function Overview() {
+export default function HomePage() {
   const navigate = useNavigate();
 
   const [name, setName] = useState<string | null>(null);
@@ -66,7 +66,7 @@ export default function Overview() {
 
         <div className="balance-section">
           <div className="balance-row">
-            <h3 className="overview-title">Your balance is:</h3>
+            <span className="balance-label">Your balance is:</span>
 
             {!editing ? (
               <span
@@ -97,6 +97,13 @@ export default function Overview() {
             )}
           </div>
         </div>
+
+        <nav className="overview-menu">
+          <button className="menu-item active">Home</button>
+          <button className="menu-item">Calendar</button>
+          <button className="menu-item">Transactions</button>
+          <button className="menu-item">Settings</button>
+        </nav>
       </div>
 
       <div className="overview-right">

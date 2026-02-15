@@ -1,8 +1,8 @@
 import {useState} from "react";
-import "../styles/setup.css";
+import "../styles/setuppage.css";
 import {useNavigate} from "react-router-dom";
 
-export default function Setup() {
+export default function SetupPage() {
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -20,7 +20,7 @@ export default function Setup() {
 
     localStorage.setItem("perficalSetup", JSON.stringify(data));
 
-    navigate("/overview");
+    navigate("/home");
   };
 
   return (
