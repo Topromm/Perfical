@@ -5,45 +5,51 @@
 
 .overview-container {
   animation: fadeInPage 0.6s ease forwards;
-  color: #d8f5dd;
-
   padding: 2rem 2.5rem;
+  color: #d8f5dd;
   text-align: left;
+  display: flex;
+  width: 100%;
+  gap: 3rem;
+}
+
+.overview-left {
+  flex-direction: column;
+  display: flex;
+  gap: 0.5rem;
+  width: 40%;
+}
+
+.overview-right {
+  justify-content: flex-start;
+  margin-top: 5rem;
+  display: flex;
+  width: 60%;
+}
+
+.overview-content {
+  max-width: 600px;
+  width: 100%;
 }
 
 .overview-greeting {
-  font-size: 2rem;
-  margin: 0 0 1rem 0;
+  white-space: nowrap;
   color: #7fffa1;
-}
-
-.overview-title {
-  margin: 0 0 0.25rem 0;
-  font-size: 1.1rem;
-  color: #d8f5dd;
-}
-
-.balance-input {
-  padding: 1rem;
-  font-size: 1.5rem;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  width: 250px;
-  text-align: left;
-}
-
-.balance-row {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-}
-
-.overview-title {
+  font-size: 2rem;
   margin: 0;
+}
+
+.overview-title {
+  margin: 0 0 1rem 0;
   font-size: 1.5rem;
   font-weight: bold;
   color: #d8f5dd;
+}
+
+.balance-row {
+  align-items: baseline;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .balance-display {
@@ -53,16 +59,18 @@
 }
 
 .balance-inline-input {
-  font-size: 1.5rem;
+  background: transparent;
   font-family: inherit;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #7fffa1;
-
-  background: transparent;
-  border: none;
   outline: none;
+  border: none;
+  width: 5rem;
   padding: 0;
   margin: 0;
+}
 
-  width: 5rem;
+.balance-section {
+  margin-bottom: 1rem;
 }

@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
+import Calendar from "../components/Calendar";
 import "../styles/overview.css";
 
 export default function Overview() {
@@ -57,41 +58,53 @@ export default function Overview() {
 
   return (
     <div className="overview-container">
-      {name && <h2 className="overview-greeting">Welcome back, {name}.</h2>}
 
-      <div className="balance-section">
-        <div className="balance-row">
-          <h3 className="overview-title">Your balance is:</h3>
+      <div className="overview-left">
+        {name && (
+          <h2 className="overview-greeting">Welcome back, {name}.</h2>
+        )}
 
-          {!editing ? (
-            <span
-              className="balance-display"
-              onClick={() => {
-                setBalance(savedBalance || "");
-                setEditing(true);
-              }}
-            >
-              {formatBalance(savedBalance || "")}
-            </span>
-          ) : (
-            <input
-              autoFocus
-              className="balance-inline-input"
-              type="text"
-              value={balance}
-              onChange={(e) => {
-                const v = e.target.value;
-                if (/^\d*$/.test(v)) setBalance(v);
-              }}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") saveBalance();
-                if (e.key === "Escape") setEditing(false);
-              }}
-              onBlur={() => setEditing(false)}
-            />
-          )}
+        <div className="balance-section">
+          <div className="balance-row">
+            <h3 className="overview-title">Your balance is:</h3>
+
+            {!editing ? (
+              <span
+                className="balance-display"
+                onClick={() => {
+                  setBalance(savedBalance || "");
+                  setEditing(true);
+                }}
+              >
+                {formatBalance(savedBalance || "")}
+              </span>
+            ) : (
+              <input
+                autoFocus
+                className="balance-inline-input"
+                type="text"
+                value={balance}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  if (/^\d*$/.test(v)) setBalance(v);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") saveBalance();
+                  if (e.key === "Escape") setEditing(false);
+                }}
+                onBlur={() => setEditing(false)}
+              />
+            )}
+          </div>
         </div>
       </div>
+
+      <div className="overview-right">
+        <div className="overview-content">
+          <Calendar/>
+        </div>
+      </div>
+
     </div>
   );
 }
