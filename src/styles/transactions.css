@@ -1,0 +1,128 @@
+.transactions-container {
+  animation: fadeInPage 0.6s ease forwards;
+  color: #d8f5dd;
+  width: 100%;
+}
+
+.transactions-header {
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  align-items: center;
+  display: flex;
+}
+
+.transactions-title {
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  color: #7fffa1;
+  margin: 0;
+}
+
+.add-transaction-btn {
+  background: #427e46;
+  transition: 0.2s ease;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: white;
+  border: none;
+}
+
+.add-transaction-btn:hover {
+  background: #366639;
+}
+
+.transactions-list {
+  flex-direction: column;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.transaction-item {
+  background: rgba(255, 255, 255, 0.05);
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  display: flex;
+}
+
+.transaction-item.income {
+  border-left: 4px solid #7fffa1;
+  color: #7fffa1;
+}
+
+.transaction-item.outcome {
+  border-left: 4px solid #ff6b6b;
+  color: #ff6b6b;
+}
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.205);
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10vh;
+  position: fixed;
+  display: flex;
+  z-index: 9999;
+  inset: 0;
+}
+
+.modal-box {
+  width: clamp(280px, 40vw, 420px);
+  flex-direction: column;
+  background: #1a1f1a;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.modal-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.6rem;
+  color: #7fffa1;
+}
+
+.modal-label {
+  color: #d8f5dd;
+  font-size: 1rem;
+}
+
+.modal-input {
+  border: 1px solid #427e46;
+  background: #0f120f;
+  border-radius: 6px;
+  color: #d8f5dd;
+  padding: 0.6rem;
+}
+
+.modal-checkbox {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.modal-buttons {
+  justify-content: flex-end;
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.modal-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+}
+
+.modal-btn.cancel {
+  background: #444;
+  color: white;
+}
+
+.modal-btn.save {
+  background: #427e46;
+  color: white;
+}

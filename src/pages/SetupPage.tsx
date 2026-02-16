@@ -1,6 +1,6 @@
-import {useState} from "react";
-import "../styles/setuppage.css";
 import {useNavigate} from "react-router-dom";
+import "../styles/setuppage.css";
+import {useState} from "react";
 
 export default function SetupPage() {
   const navigate = useNavigate();

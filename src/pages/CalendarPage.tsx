@@ -1,9 +1,9 @@
 import SharedLayout from "../components/SharedLayout";
 import Calendar from "../components/Calendar";
 
-export default function HomePage() {
+export default function CalendarPage() {
   return (
-    <SharedLayout currentPage="home">
+    <SharedLayout currentPage="calendar">
       <Calendar/>
     </SharedLayout>
   );
