@@ -11,11 +11,21 @@
 }
 
 @font-face {
-  font-family: "PerficalFont";
+  font-family: "PerficalLogoFont";
   src: url("/src/assets/fonts/Panton-BlackCaps.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "Coolvetica";
+  font-family: "PerficalTaglineFont";
   src: url("/src/assets/fonts/coolvetica.regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CommonFont";
+  src: url("/src/assets/fonts/metropolis.regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "MenuFont";
+  src: url("/src/assets/fonts/aileron.regular.woff2") format("woff2");
 }

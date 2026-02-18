@@ -63,10 +63,10 @@ export default function SharedLayout({ children, currentPage }: SharedLayoutProp
   };
 
   return (
-    <div className="overview-container">
-      <div className="overview-left">
+    <div className="interface-container">
+      <div className="interface-left">
         {name && (
-          <h2 className="overview-greeting">Welcome back, {name}.</h2>
+          <h2 className="interface-greeting">Welcome back, {name}.</h2>
         )}
 
         <div className="balance-section">
@@ -103,7 +103,7 @@ export default function SharedLayout({ children, currentPage }: SharedLayoutProp
           </div>
         </div>
 
-        <nav className="overview-menu">
+        <nav className="interface-menu">
           <button
             className={`menu-item ${currentPage === "home" ? "active" : ""}`}
             onClick={() => handleNavigate("/home")}
@@ -138,8 +138,8 @@ export default function SharedLayout({ children, currentPage }: SharedLayoutProp
         </nav>
       </div>
 
-      <div className="overview-right">
-        <div className="overview-content">
+      <div className="interface-right">
+        <div className="interface-content">
           {children}
         </div>
       </div>

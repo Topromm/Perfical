@@ -34,6 +34,7 @@ export default function SetupPage() {
             type="text"
             value={name}
             required
+            maxLength={20}
             onChange={(e) => setName(e.target.value)}
           />
         </label>
@@ -48,9 +49,9 @@ export default function SetupPage() {
             <option value="USD">US Dollar ($)</option>
             <option value="GBP">British Pound (£)</option>
             <option value="JPY">Japanese Yen (¥)</option>
+            <option value="CHF">Swiss Franc (CHF)</option>
             <option value="SEK">Swedish Krona (kr)</option>
             <option value="NOK">Norwegian Krone (kr)</option>
-            <option value="CHF">Swiss Franc (CHF)</option>
           </select>
         </label>
 

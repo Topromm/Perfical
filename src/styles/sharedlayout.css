@@ -3,65 +3,64 @@
   to { opacity: 1; }
 }
 
-.overview-container {
-  animation: fadeInPage 0.6s ease forwards;
+.interface-container {
   padding: clamp(1rem, 3vw, 4rem);
   gap: clamp(1rem, 4vw, 5rem);
-  text-align: left;
   color: #d8f5dd;
+  text-align: left;
   display: flex;
   width: 100%;
 }
 
-.overview-left {
-  width: clamp(300px, 40vw, 600px);
-  gap: clamp(0.3rem, 1vw, 1rem);
+.interface-left {
+
   flex-direction: column;
+  flex-shrink: 0;
   display: flex;
+  width: 340px;
 }
 
-.overview-right {
-  margin-top: clamp(2rem, 6vw, 8rem);
+.interface-right {
+  animation: fadeInPage 0.6s ease forwards;
   width: clamp(300px, 50vw, 700px);
   justify-content: flex-start;
+  font-family: "CommonFont";
+  margin-top: 6rem;
+  margin-left: clamp(0rem, 1vw, 6rem);
   display: flex;
+  
 }
 
-.overview-content {
+.interface-content {
   max-width: clamp(400px, 50vw, 700px);
   width: 100%;
 }
 
 :root {
-  --overview-text-scale: clamp(1.8rem, 2.5vw, 2.5rem);
+  --interface-text-scale: clamp(1.8rem, 1vw, 2rem);
 }
 
-.overview-greeting {
-  font-size: var(--overview-text-scale);
+.interface-greeting {
+  font-size: var(--interface-text-scale);
+  font-family: "CommonFont";
   white-space: nowrap;
   color: #7fffa1;
   margin: 0;
 }
 
-.overview-title {
-  font-size: calc(var(--overview-text-scale) * 0.75);
-  margin: 0 0 clamp(0.5rem, 1vw, 1.5rem) 0;
-  font-weight: bold;
-  color: #d8f5dd;
-}
-
 .balance-row {
-  gap: clamp(0.3rem, 1vw, 1rem);
+  font-family: "CommonFont";
   align-items: baseline;
   white-space: nowrap;
   flex-wrap: nowrap;
   display: flex;
+  gap: 0.8rem;
 }
 
 .balance-label,
 .balance-display,
 .balance-inline-input {
-  font-size: var(--overview-text-scale);
+  font-size: var(--interface-text-scale);
   font-weight: bold;
   line-height: 1;
   margin: 0;
@@ -96,21 +95,22 @@
 }
 
 .balance-section {
-  margin-bottom: clamp(0.5rem, 2vw, 2rem);
+  margin-bottom: 0.5rem;
 }
 
-.overview-menu {
-  margin-top: clamp(1rem, 2vw, 2rem);
-  gap: clamp(0.5rem, 1vw, 1rem);
+.interface-menu {
   flex-direction: column;
+  margin-top: 1rem;
   display: flex;
+  gap: 0.5rem;
 }
 
 .menu-item {
-  font-size: calc(var(--overview-text-scale) * 0.6);
+  font-size: calc(var(--interface-text-scale) * 0.6);
   transition: background 0.2s ease, color 0.2s ease;
   background: rgba(255, 255, 255, 0.05);
-  padding: clamp(0.5rem, 1vw, 1rem);
+  padding: clamp(0.5rem, 2vw, 1rem);
+  font-family: "MenuFont";
   align-items: center;
   border-radius: 8px;
   text-align: left;

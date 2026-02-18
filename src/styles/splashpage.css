@@ -42,7 +42,7 @@
 }
 
 .perfical-title {
-  font-family: "PerficalFont", sans-serif;
+  font-family: "PerficalLogoFont", sans-serif;
   font-size: clamp(7rem, 8.33vw, 10rem);
   line-height: 0.4;
   color: #427e46;
@@ -50,8 +50,8 @@
 }
 
 .perfical-tagline {
+  font-family: "PerficalTaglineFont", sans-serif;
   font-size: clamp(2.14rem, 2.55vw, 3.05rem);
-  font-family: "Coolvetica", sans-serif;
   margin: 0.5rem 0 0 0;
   color: #366639;
 }

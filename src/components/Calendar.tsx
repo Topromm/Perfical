@@ -1,9 +1,9 @@
 import {useState} from "react";
 import "../styles/calendar.css";
 
-export default function Calendar() {
+export default function Calendar({ monthOffset = 0 }: { monthOffset?: number }) {
   const today = new Date();
-  const [currentDate] = useState(today);
+  const [currentDate] = useState(new Date(today.getFullYear(), today.getMonth() + monthOffset, 1));
 
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();

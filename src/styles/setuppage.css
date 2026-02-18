@@ -10,12 +10,14 @@
 }
 
 .setup-title {
+  font-family: "CommonFont";
   margin-bottom: 1.5rem;
   font-size: 2.2rem;
   color: #7fffa1;
 }
 
 .setup-form {
+  font-family: "CommonFont";
   flex-direction: column;
   margin: 0 auto;
   display: flex;
@@ -33,6 +35,7 @@
 
 .setup-form input,
 .setup-form select {
+  font-family: "CommonFont";
   background: #1a3a28;
   margin-top: 0.4rem;
   border-radius: 6px;
@@ -44,8 +47,9 @@
 }
 
 .setup-submit {
-  transition: 0.2s ease;
+  font-family: "MenuFont";
   background: #427e46;
+  transition: 0.2s ease;
   border-radius: 6px;
   font-size: 1.1rem;
   margin-top: 1rem;

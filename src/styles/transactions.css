@@ -18,6 +18,7 @@
 }
 
 .add-transaction-btn {
+  font-family: "MenuFont";
   background: #427e46;
   transition: 0.2s ease;
   padding: 0.6rem 1rem;
@@ -111,6 +112,7 @@
 }
 
 .modal-btn {
+  font-family: "MenuFont";
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;

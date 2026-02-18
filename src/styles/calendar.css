@@ -1,6 +1,19 @@
+.calendar-container {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.calendar-row {
+  display: flex;
+  gap: 1rem;
+}
+
 .calendar {
   background: rgba(255, 255, 255, 0.03);
+  font-family: "CommonFont";
   border-radius: 12px;
+  min-width: 350px;
   max-width: 350px;
   padding: 1rem;
   width: 100%;
@@ -32,8 +45,8 @@
 }
 
 .calendar-empty {
-  background: rgb(20, 41, 13);
   padding: 0.3rem 0 0.3rem 0.5rem;
+  background: rgb(20, 41, 13);
   border-radius: 8px;
   opacity: 0.4;
 }
