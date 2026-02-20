@@ -1,7 +1,7 @@
 .calendar-container {
+  flex-direction: column;
   display: flex;
   gap: 1rem;
-  flex-direction: column;
 }
 
 .calendar-row {

@@ -37,8 +37,14 @@ export default function AddTransactionModal({
   };
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-box">
+    <div
+      className="modal-overlay"
+      onClick={onClose}
+    >
+      <div
+        className="modal-box"
+        onClick={e => e.stopPropagation()}
+      >
 
         <h3 className="modal-title">Add Transaction</h3>
 
@@ -53,7 +59,9 @@ export default function AddTransactionModal({
         <input
           className="modal-input"
           value={amount}
-          onChange={e => /^\d*$/.test(e.target.value) && setAmount(e.target.value)}
+          onChange={e =>
+            /^\d*$/.test(e.target.value) && setAmount(e.target.value)
+          }
         />
 
         <label className="modal-label">Type</label>

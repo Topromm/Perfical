@@ -1,7 +1,7 @@
 .transactions-container {
   animation: fadeInPage 0.6s ease forwards;
   color: #d8f5dd;
-  width: 100%;
+  width: 95.5%;
 }
 
 .transactions-header {
@@ -12,8 +12,8 @@
 }
 
 .transactions-title {
-  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
-  color: #7fffa1;
+  font-size: clamp(1.6rem, 2vw, 2.1rem);
+  color: #d8f5dd;
   margin: 0;
 }
 
@@ -46,6 +46,7 @@
   border-radius: 8px;
   font-size: 1.1rem;
   display: flex;
+  
 }
 
 .transaction-item.income {

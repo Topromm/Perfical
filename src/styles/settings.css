@@ -1,0 +1,60 @@
+.settings-container {
+  animation: fadeInPage 0.6s ease forwards;
+  flex-direction: column;
+  color: #d8f5dd;
+  display: flex;
+  width: 95.5%;
+  gap: 1rem;
+}
+
+.settings-title {
+  font-size: clamp(1.6rem, 2vw, 2.1rem);
+  color: #d8f5dd;
+  margin: 0;
+}
+
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.settings-label {
+  font-size: 0.9rem;
+  color: #7fffa1;
+}
+
+.settings-inline-display,
+.settings-input {
+ border: 1px solid #427e46;
+ font-family: "CommonFont";
+  padding: 0.45rem 0.55rem;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  color: #d8f5dd;
+  line-height: 1.2;
+  width: 100%;
+}
+
+.settings-inline-display {
+  background: rgba(255, 255, 255, 0.05);
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.settings-inline-display:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.settings-input {
+  background: #0f120f;
+  outline: none;
+}
+
+.checkbox-row {
+ justify-content: space-between;
+ align-items: center;
+ flex-direction: row;
+  display: flex;
+}

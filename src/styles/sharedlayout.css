@@ -26,7 +26,6 @@
   justify-content: flex-start;
   font-family: "CommonFont";
   margin-top: 6rem;
-  margin-left: clamp(0rem, 1vw, 6rem);
   display: flex;
   
 }

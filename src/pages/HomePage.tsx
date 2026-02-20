@@ -3,13 +3,24 @@ import Calendar from "../components/Calendar";
 import { useState, useEffect } from "react";
 
 export default function HomePage() {
-  const [showTwoCalendars, setShowTwoCalendars] = useState(false);
-  const [showThreeCalendars, setShowThreeCalendars] = useState(false);
+  const [topCalendars, setTopCalendars] = useState(1);
+  const [bottomCalendars, setBottomCalendars] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
-      setShowTwoCalendars(window.innerWidth > 1220);
-      setShowThreeCalendars(window.innerWidth > 1650);
+      let top = 1;
+      if (window.innerWidth > 1650) {
+        top = 3;
+      } else if (window.innerWidth > 1220) {
+        top = 2;
+      }
+      setTopCalendars(top);
+
+      let bottom = 0;
+      if (window.innerHeight > 840) {
+        bottom = top;
+      }
+      setBottomCalendars(bottom);
     };
 
     handleResize();
@@ -20,9 +31,18 @@ export default function HomePage() {
   return (
     <SharedLayout currentPage="home">
       <div className="calendar-container">
-        <Calendar monthOffset={0} />
-        {showTwoCalendars && <Calendar monthOffset={1} />}
-        {showThreeCalendars && <Calendar monthOffset={2} />}
+        <div className="calendar-row">
+          {Array.from({ length: topCalendars }, (_, i) => (
+            <Calendar key={i} monthOffset={i} />
+          ))}
+        </div>
+        {bottomCalendars > 0 && (
+          <div className="calendar-row">
+            {Array.from({ length: bottomCalendars }, (_, i) => (
+              <Calendar key={topCalendars + i} monthOffset={topCalendars + i} />
+            ))}
+          </div>
+        )}
       </div>
     </SharedLayout>
   );
