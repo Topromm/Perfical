@@ -9,6 +9,9 @@ I've always been a highly analytical person, and for years I tracked my finances
 Perfical is the result: a Personal Financial Calendar designed to make it effortless to see your spending, balance changes, and upcoming payments at a glance.
 
 ---
+## Installation
+Coming soon - I'm currently deep into [Phase 3 of the roadmap](#phase-3--transactions-system-expansion-next-step).  
+Once that's complete, Perfical will enter open beta with an installer.
 
 ## Features
 - Visual calendar view of income and expenses
