@@ -41,7 +41,7 @@ Perfical is the result: a Personal Financial Calendar designed to make it effort
 
 ---
 
-### **Phase 2 — Local Database Integration (Next Step)**
+### **Phase 2 — Local Database Integration (Completed)**
 Perfical will move from simple JSON-based local storage to a structured local database using **Dexie.js (IndexedDB)**.
 
 This enables:
@@ -57,7 +57,7 @@ This enables:
 
 ---
 
-### **Phase 3 — Transactions System Expansion**
+### **Phase 3 — Transactions System Expansion (Next Step)**
 - Edit transaction modal  
 - Delete / duplicate / copy / paste entries  
 - Add date field to each entry  
