@@ -1,3 +1,5 @@
+import { getSettings, getBalance, setBalance as saveBalanceToDB } from "../backend/db";
+import { onSettingsChanged } from "../utils/events";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../styles/sharedlayout.css";
@@ -22,38 +24,49 @@ export default function SharedLayout({ children, currentPage }: SharedLayoutProp
   const [balance, setBalance] = useState("");
 
   useEffect(() => {
-    const setup = localStorage.getItem("perficalSetup");
-    if (!setup) {
-      navigate("/setup");
-      return;
+    async function load() {
+      const settings = await getSettings();
+      if (!settings) {
+        navigate("/setup");
+        return;
+      }
+
+      setName(settings.name);
+      setCurrency(settings.currency);
+
+      const bal = await getBalance();
+      if (bal) setSavedBalance(bal.amount);
     }
 
-    const parsed = JSON.parse(setup);
-    setName(parsed.name);
-    setCurrency(parsed.currency);
+    load();
 
-    const stored = localStorage.getItem("balance");
-    if (stored) setSavedBalance(stored);
+    const unsubscribe = onSettingsChanged(() => { 
+      load();
+    }); 
+    
+    return unsubscribe;
   }, [navigate]);
 
   const formatBalance = (value: string) => {
     const num = Number(value);
     if (isNaN(num)) return value;
 
+    const formatted = num.toLocaleString("en-US");
+
     switch (currency) {
-      case "EUR": return `${num} €`;
-      case "SEK":
-      case "NOK": return `${num} kr`;
-      case "CHF": return `${num} CHF`;
-      case "USD": return `$${num}`;
-      case "GBP": return `£${num}`;
-      case "JPY": return `¥${num}`;
-      default: return `${num} ${currency}`;
+      case "EUR": return `${formatted} €`;
+      case "USD": return `$${formatted}`;
+      case "GBP": return `£${formatted}`;
+      case "JPY": return `¥${formatted}`;
+      case "CHF": return `${formatted} CHF`;
+      case "SEK": return `${formatted} kr`;
+      case "NOK": return `${formatted} kr`;
+      default: return `${formatted} ${currency}`;
     }
   };
 
-  const saveBalance = () => {
-    localStorage.setItem("balance", balance);
+  const saveBalance = async () => {
+    await saveBalanceToDB(balance);
     setSavedBalance(balance);
     setEditing(false);
   };
@@ -89,6 +102,7 @@ export default function SharedLayout({ children, currentPage }: SharedLayoutProp
                 className="balance-inline-input"
                 type="text"
                 value={balance}
+                maxLength={8}
                 onChange={(e) => {
                   const v = e.target.value;
                   if (/^\d*$/.test(v)) setBalance(v);

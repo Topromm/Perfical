@@ -1,31 +1,34 @@
 import "../styles/transactions.css";
 import { useState } from "react";
 
-type AddTransactionModalProps = {
-  onClose: () => void;
-  onSave: (entry: {
+type EditTransactionModalProps = {
+  data: {
+    id: number;
     title: string;
     amount: number;
     type: string;
     repeat: boolean;
     frequency: string | null;
-  }) => void;
+  };
+  onClose: () => void;
+  onSave: (id: number, updated: any) => void;
 };
 
-export default function AddTransactionModal({
+export default function EditTransactionModal({
+  data,
   onClose,
   onSave
-}: AddTransactionModalProps) {
-  const [title, setTitle] = useState("");
-  const [amount, setAmount] = useState("");
-  const [type, setType] = useState("income");
-  const [repeat, setRepeat] = useState(false);
-  const [frequency, setFrequency] = useState("monthly");
+}: EditTransactionModalProps) {
+  const [title, setTitle] = useState(data.title);
+  const [amount, setAmount] = useState(String(data.amount));
+  const [type, setType] = useState(data.type);
+  const [repeat, setRepeat] = useState(data.repeat);
+  const [frequency, setFrequency] = useState(data.frequency || "monthly");
 
   const save = () => {
     if (!title || !amount) return;
 
-    onSave({
+    onSave(data.id, {
       title,
       amount: Number(amount),
       type,
@@ -37,16 +40,9 @@ export default function AddTransactionModal({
   };
 
   return (
-    <div
-      className="modal-overlay"
-      onClick={onClose}
-    >
-      <div
-        className="modal-box"
-        onClick={e => e.stopPropagation()}
-      >
-
-        <h3 className="modal-title">Add Transaction</h3>
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-box" onClick={e => e.stopPropagation()}>
+        <h3 className="modal-title">Edit Transaction</h3>
 
         <label className="modal-label">Title</label>
         <input
@@ -109,7 +105,6 @@ export default function AddTransactionModal({
             Save
           </button>
         </div>
-
       </div>
     </div>
   );

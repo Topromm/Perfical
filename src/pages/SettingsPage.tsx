@@ -1,6 +1,7 @@
+import { getSettings, updateSetting } from "../backend/db";
 import SharedLayout from "../components/SharedLayout";
-import "../styles/settings.css";
 import { useState, useEffect } from "react";
+import "../styles/settings.css";
 
 export default function SettingsPage() {
   const [name, setName] = useState("");
@@ -13,31 +14,22 @@ export default function SettingsPage() {
   const [skipSplash, setSkipSplash] = useState(false);
 
   useEffect(() => {
-    const setup = localStorage.getItem("perficalSetup");
-    if (setup) {
-      const parsed = JSON.parse(setup);
-      const storedName = parsed.name || "";
-      const storedCurrency = parsed.currency || "EUR";
-      const storedFirstDay = parsed.firstDay || "monday";
+    async function load() {
+      const settings = await getSettings();
+      if (!settings) return;
 
-      setName(storedName);
-      setOriginalName(storedName);
-      setCurrency(storedCurrency);
-      setFirstDay(storedFirstDay);
+      setName(settings.name);
+      setOriginalName(settings.name);
+      setCurrency(settings.currency);
+      setFirstDay(settings.firstDay);
+      setSkipSplash(settings.skipSplash);
     }
+
+    load();
   }, []);
 
-  const updateSetupField = (field: "name" | "currency" | "firstDay", value: string) => {
-    const setup = localStorage.getItem("perficalSetup");
-    if (!setup) return;
-
-    const parsed = JSON.parse(setup);
-    parsed[field] = value;
-    localStorage.setItem("perficalSetup", JSON.stringify(parsed));
-  };
-
-  const saveName = () => {
-    updateSetupField("name", name);
+  const saveName = async () => {
+    await updateSetting("name", name);
     setOriginalName(name);
     setEditingName(false);
   };
@@ -47,14 +39,14 @@ export default function SettingsPage() {
     setEditingName(false);
   };
 
-  const handleCurrencyChange = (value: string) => {
+  const handleCurrencyChange = async (value: string) => {
     setCurrency(value);
-    updateSetupField("currency", value);
+    await updateSetting("currency", value);
   };
 
-  const handleFirstDayChange = (value: string) => {
+  const handleFirstDayChange = async (value: string) => {
     setFirstDay(value);
-    updateSetupField("firstDay", value);
+    await updateSetting("firstDay", value);
   };
 
   return (
@@ -96,11 +88,13 @@ export default function SettingsPage() {
             value={currency}
             onChange={e => handleCurrencyChange(e.target.value)}
           >
-            <option value="EUR">EUR (€)</option>
-            <option value="USD">USD ($)</option>
-            <option value="GBP">GBP (£)</option>
-            <option value="SEK">SEK (kr)</option>
-            <option value="NOK">NOK (kr)</option>
+            <option value="EUR">Euro (€)</option>
+            <option value="USD">US Dollar ($)</option>
+            <option value="GBP">British Pound (£)</option>
+            <option value="JPY">Japanese Yen (¥)</option>
+            <option value="CHF">Swiss Franc (CHF)</option>
+            <option value="SEK">Swedish Krona (kr)</option>
+            <option value="NOK">Norwegian Krone (kr)</option>
           </select>
         </div>
 
@@ -118,7 +112,7 @@ export default function SettingsPage() {
 
         {/* THEME (placeholder) */}
         <div className="settings-section">
-          <label className="settings-label">Theme</label>
+          <label className="settings-label">Theme (DISABLED)</label>
           <select
             className="settings-input"
             value={theme}
@@ -130,13 +124,16 @@ export default function SettingsPage() {
           </select>
         </div>
 
-        {/* SKIP SPLASH (placeholder) */}
         <div className="settings-section checkbox-row">
           <label className="settings-label">Skip Splash Screen</label>
           <input
             type="checkbox"
             checked={skipSplash}
-            onChange={() => setSkipSplash(!skipSplash)}
+            onChange={async () => {
+              const newValue = !skipSplash; 
+              setSkipSplash(newValue); 
+              await updateSetting("skipSplash", newValue);
+          }}
           />
         </div>
 

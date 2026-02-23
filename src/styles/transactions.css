@@ -15,22 +15,32 @@
   font-size: clamp(1.6rem, 2vw, 2.1rem);
   color: #d8f5dd;
   margin: 0;
+  
 }
 
-.add-transaction-btn {
+.add-btn {
   font-family: "MenuFont";
   background: #427e46;
   transition: 0.2s ease;
   padding: 0.6rem 1rem;
+  align-items: center;
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
   color: white;
   border: none;
+  display: flex;
+  gap: 0.5rem;
 }
 
-.add-transaction-btn:hover {
+.add-btn:hover {
   background: #366639;
+}
+
+.add-icon {
+  filter: invert(1);
+  height: 18px;
+  width: 18px;
 }
 
 .transactions-list {
@@ -43,10 +53,10 @@
   background: rgba(255, 255, 255, 0.05);
   justify-content: space-between;
   padding: 0.8rem 1rem;
+  align-items: center;
   border-radius: 8px;
   font-size: 1.1rem;
   display: flex;
-  
 }
 
 .transaction-item.income {
@@ -57,6 +67,62 @@
 .transaction-item.outcome {
   border-left: 4px solid #ff6b6b;
   color: #ff6b6b;
+}
+
+.transaction-title {
+  text-overflow: unset;
+  white-space: normal;
+  overflow: visible;
+}
+
+@media (max-width: 920px) {
+  .transaction-title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 180px;
+    overflow: hidden;
+    display: block;
+  }
+}
+
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.transaction-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.transaction-actions button {
+  transition: 0.2s ease;
+  border-radius: 6px;
+  background: none;
+  cursor: pointer;
+  padding: 0.3rem;
+  border: none;
+}
+
+.transaction-actions img {
+  filter: invert(1);
+  opacity: 0.85;
+  height: 20px;
+  width: 20px;
+}
+
+.edit-btn:hover {
+  background: rgba(255, 200, 0, 0.3);
+}
+
+.remove-btn:hover {
+  background: rgba(255, 80, 80, 0.3);
+}
+
+.edit-btn:hover .edit-icon,
+.remove-btn:hover .remove-icon {
+  opacity: 1;
 }
 
 .modal-overlay {

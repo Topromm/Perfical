@@ -1,6 +1,7 @@
-import {useNavigate} from "react-router-dom";
+import { initDB, updateSetting } from "../backend/db";
+import { useNavigate } from "react-router-dom";
 import "../styles/setuppage.css";
-import {useState} from "react";
+import { useState } from "react";
 
 export default function SetupPage() {
   const navigate = useNavigate();
@@ -9,16 +10,14 @@ export default function SetupPage() {
   const [currency, setCurrency] = useState("EUR");
   const [firstDay, setFirstDay] = useState("monday");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const data = {
-      name,
-      currency,
-      firstDay
-    };
+    await initDB();
 
-    localStorage.setItem("perficalSetup", JSON.stringify(data));
+    await updateSetting("name", name);
+    await updateSetting("currency", currency);
+    await updateSetting("firstDay", firstDay);
 
     navigate("/home");
   };

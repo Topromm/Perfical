@@ -2,25 +2,44 @@ import BlobBackground from "../components/BlobBackground";
 import githubIcon from "../assets/images/github.svg";
 import {open} from "@tauri-apps/plugin-shell";
 import {useNavigate} from "react-router-dom";
+import { getSettings } from "../backend/db";
+import {useEffect, useState} from "react";
 import "../styles/splashpage.css";
-import {useState} from "react";
 
 export default function SplashPage() {
   const navigate = useNavigate();
   const [exiting, setExiting] = useState(false);
 
-  const handleLogoClick = () => {
+  const handleLogoClick = async () => {
     setExiting(true);
 
-    setTimeout(() => {
-      const setup = localStorage.getItem("perficalSetup");
-      if (setup) {
-        navigate("/home");
-      } else {
+    setTimeout(async () => {
+      const settings = await getSettings();
+
+      if (!settings) {
         navigate("/setup");
+        return;
       }
+
+      if (settings.skipSplash) {
+        navigate("/home");
+        return;
+      }
+
+      navigate("/home");
     }, 800);
   };
+
+  useEffect(() => {
+  async function check() {
+    const settings = await getSettings();
+    if (settings && settings.skipSplash) {
+      navigate("/home");
+    }
+  }
+  check();
+}, []);
+
 
   return (
     <div className="splash-wrapper">

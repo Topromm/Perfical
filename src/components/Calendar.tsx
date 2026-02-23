@@ -1,15 +1,26 @@
-import {useState} from "react";
+import { useState, useEffect } from "react";
+import { getSettings } from "../backend/db";
 import "../styles/calendar.css";
 
 export default function Calendar({ monthOffset = 0 }: { monthOffset?: number }) {
   const today = new Date();
-  const [currentDate] = useState(new Date(today.getFullYear(), today.getMonth() + monthOffset, 1));
+  const [currentDate] = useState(
+    new Date(today.getFullYear(), today.getMonth() + monthOffset, 1)
+  );
+
+  const [firstDayPref, setFirstDayPref] = useState<"monday" | "sunday">("monday");
+
+  useEffect(() => {
+    async function load() {
+      const settings = await getSettings();
+      if (!settings) return;
+      setFirstDayPref(settings.firstDay as "monday" | "sunday");
+    }
+    load();
+  }, []);
 
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
-
-  const setup = localStorage.getItem("perficalSetup");
-  const firstDayPref = setup ? JSON.parse(setup).firstDay : "monday";
 
   const weekdays =
     firstDayPref === "sunday"
