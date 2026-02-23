@@ -4,7 +4,7 @@
 A personal financial calendar that helps you track income, expenses, and upcoming payments at a glance. Fully offline, fast, and built for everyday clarity.
 
 ## From Spreadsheet to App: Why I Built This
-I've always been a highly analytical person, and for years I tracked my finances in Excel using custom formulas and conditional logic. It worked, but it left a lot to be desired. I wanted something offline, structured, and actually enjoyable to use.
+I've always been a highly analytical person, and for years I tracked my finances in Excel using custom formulas and conditional logic. It worked, but it left a lot to be desired. I wanted something that's more secure, offline, structured, and actually enjoyable to use.
 
 Perfical is the result: a Personal Financial Calendar designed to make it effortless to see your spending, balance changes, and upcoming payments at a glance.
 
