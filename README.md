@@ -31,7 +31,7 @@ Perfical is the result: a Personal Financial Calendar designed to make it effort
 
 ## Roadmap
 
-### **Phase 1 — Core UI (Completed / In Progress)**
+### **Phase 1 — Core UI (Completed)**
 - Shared layout system (sidebar, balance, navigation)  
 - Home page with calendar  
 - Transactions page (list view + add modal)  
