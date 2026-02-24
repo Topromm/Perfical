@@ -44,7 +44,9 @@ export default function SharedLayout({ children, currentPage }: SharedLayoutProp
       load();
     }); 
     
-    return unsubscribe;
+    return () => {
+      unsubscribe();
+    };
   }, [navigate]);
 
   const formatBalance = (value: string) => {
