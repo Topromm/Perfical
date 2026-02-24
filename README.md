@@ -4,9 +4,15 @@
 A personal financial calendar that helps you track income, expenses, and upcoming payments at a glance. Fully offline, fast, and built for everyday clarity.
 
 ## From Spreadsheet to App: Why I Built This
-I've always been a highly analytical person, and for years I tracked my finances in Excel using custom formulas and conditional logic. It worked, but it left a lot to be desired. I wanted something offline, structured, and actually enjoyable to use.
+I've always been a highly analytical person, and for years I tracked my finances in Excel using custom formulas and conditional logic. It worked, but it left a lot to be desired. I wanted something that's more secure, offline, structured, and actually enjoyable to use.
 
-Perfical is the result: a Personal Financial Calendar designed to make it effortless to see your spending, balance changes, and upcoming payments at a glance.
+This is the result: a Personal Financial Calendar designed to make it effortless to see your spending, balance changes, and upcoming payments at a glance.
+
+---
+
+## Installation
+Coming soon - I'm currently deep into [Phase 3 of the roadmap](#phase-3--transactions-system-expansion-next-step).  
+by March 1st, Perfical will enter Early Access with an installer. 
 
 ---
 
@@ -31,7 +37,7 @@ Perfical is the result: a Personal Financial Calendar designed to make it effort
 
 ## Roadmap
 
-### **Phase 1 — Core UI (Completed / In Progress)**
+### **Phase 1 — Core UI (Completed)**
 - Shared layout system (sidebar, balance, navigation)  
 - Home page with calendar  
 - Transactions page (list view + add modal)  
@@ -41,7 +47,7 @@ Perfical is the result: a Personal Financial Calendar designed to make it effort
 
 ---
 
-### **Phase 2 — Local Database Integration (Next Step)**
+### **Phase 2 — Local Database Integration (Completed)**
 Perfical will move from simple JSON-based local storage to a structured local database using **Dexie.js (IndexedDB)**.
 
 This enables:
@@ -57,7 +63,7 @@ This enables:
 
 ---
 
-### **Phase 3 — Transactions System Expansion**
+### **Phase 3 — Transactions System Expansion (Next Step)**
 - Edit transaction modal  
 - Delete / duplicate / copy / paste entries  
 - Add date field to each entry  
