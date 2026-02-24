@@ -12,9 +12,7 @@ This is the result: a Personal Financial Calendar designed to make it effortless
 
 ## Installation
 Coming soon - I'm currently deep into [Phase 3 of the roadmap](#phase-3--transactions-system-expansion-next-step).  
-Once that's complete, Perfical will enter Early Access with an installer. 
-
-This release will be intended for people who don't mind rough edges, as every release after that will focus on making it much smoother to use.
+by March 1st, Perfical will enter Early Access with an installer. 
 
 ---
 
