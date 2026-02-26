@@ -8,13 +8,11 @@ I've always been a highly analytical person, and for years I tracked my finances
 
 This is the result: a Personal Financial Calendar designed to make it effortless to see your spending, balance changes, and upcoming payments at a glance.
 
----
 
 ## Installation
 Coming soon - I'm currently deep into [Phase 3 of the roadmap](#phase-3--transactions-system-expansion-next-step).  
 by March 1st, Perfical will enter Early Access with an installer. 
 
----
 
 ## Features
 - Visual calendar view of income and expenses
@@ -24,7 +22,6 @@ by March 1st, Perfical will enter Early Access with an installer.
 - Local database using Dexie.js (IndexedDB)
 - Fully offline, no internet connection required
 
----
 
 ## Tech Stack
 - **React** (functional components + hooks)  
@@ -33,7 +30,6 @@ by March 1st, Perfical will enter Early Access with an installer.
 - **IndexedDB via Dexie.js** *(planned)*  
 - **SQLite** *(future upgrade)*  
 
----
 
 ## Roadmap
 
@@ -45,7 +41,6 @@ by March 1st, Perfical will enter Early Access with an installer.
 - Splash screen + animations  
 - Theme foundation (colors, typography)  
 
----
 
 ### **Phase 2 — Local Database Integration (Completed)**
 Perfical will move from simple JSON-based local storage to a structured local database using **Dexie.js (IndexedDB)**.
@@ -61,7 +56,6 @@ This enables:
 
 **(SQLite planned)** for a later phase once the data model stabilizes.
 
----
 
 ### **Phase 3 — Transactions System Expansion (Next Step)**
 - Edit transaction modal  
@@ -78,7 +72,6 @@ This enables:
   - repeat recurringly (X times)  
   - repeat recurringly (until date)  
 
----
 
 ### **Phase 4 — Calendar Enhancements**
 - Zoom levels: 1 month, 3 months, 6 months  
@@ -90,7 +83,6 @@ This enables:
   - red = expense  
   - yellow = mixed  
 
----
 
 ### **Phase 5 — Settings & Personalization**
 - Theme selection (light/dark/custom)  
@@ -100,7 +92,6 @@ This enables:
 - Backup/export options (JSON)  
 - Optional future cloud sync  
 
----
 
 ### **Phase 6 — Future Database Upgrade (Optional)**
 Perfical may later migrate to **SQLite via Tauri’s Rust backend** for:
@@ -111,7 +102,6 @@ Perfical may later migrate to **SQLite via Tauri’s Rust backend** for:
 
 This will be built on top of the Dexie‑based data model.
 
----
 
 ## License
 © Copyright 2026 Topromm. All rights reserved.
